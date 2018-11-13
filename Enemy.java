@@ -19,7 +19,7 @@ public class Enemy extends Mover {
         getImage().mirrorHorizontally();
         walkRange = 140;
         firstAct = true;
-        speed = 1;
+        speed = 3;
     }
 
     @Override
