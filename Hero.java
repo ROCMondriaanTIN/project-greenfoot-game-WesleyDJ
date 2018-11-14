@@ -74,92 +74,83 @@ public class Hero extends Mover {
         return (x - (x * 2));
 
     }
-    public void handleInput() {
-        
-        if (Greenfoot.isKeyDown("space")) {
-            velocityY = -10;
-            setImage("p3_jump.png" );
+        public void handleInput() {
+        //on ground check and handling
+        width = getImage().getWidth() / 2;
+        Tile tile = (Tile) getOneObjectAtOffset(0, getImage().getHeight() / 2 + 1, Tile.class);
+        if (tile == null) {
+            tile = (Tile) getOneObjectAtOffset(this.width - 3, getImage().getHeight() / 2 + 1, Tile.class);
         }
-
-        if (Greenfoot.isKeyDown("a")) {
+        if (tile == null) {
+            tile = (Tile) getOneObjectAtOffset((int) posToNeg(this.width) + 3, getImage().getHeight() / 2 + 1, Tile.class);
+        }
+        if (tile != null && tile.isSolid) {
+            isOnGround = true;
+        } else {
+            isOnGround = false;
+        }
+        if (Greenfoot.isKeyDown("space")) {
+            if (isOnGround) {
+                velocityY = -15;
+                animationJump(getWidth(), getHeight(), 1);
+            }
+        }
+        if (Greenfoot.isKeyDown("left")) {
             velocityX = -10;
-          //  getImage().mirrorHorizontally();
-           if(getImage() == walkIm1){
-            setImage(walkIm2);
-            }
-            else if (getImage() == walkIm2){
-             setImage(walkIm3);
-            }
-             else if (getImage() == walkIm3){
-             setImage(walkIm4);
-            }
-             else if (getImage() == walkIm4){
-             setImage(walkIm5);
-            }
-             else if (getImage() == walkIm5){
-             setImage(walkIm6);
-            }
-             else if (getImage() == walkIm6){
-             setImage(walkIm7);
-            }
-             else if (getImage() == walkIm7){
-             setImage(walkIm8);
-            }
-             else if (getImage() == walkIm8){
-             setImage(walkIm9);
-            }
-             else if (getImage() == walkIm9){
-             setImage(walkIm10);
-            }
-             else if (getImage() == walkIm10){
-             setImage(walkIm11);
-            }
-             else {
-                 setImage(walkIm1);
-            }
-           
-        } else if (Greenfoot.isKeyDown("d")) {
+            direction = "left";
+            animationWalk(getWidth(), getHeight(), 1);
+        } else if (Greenfoot.isKeyDown("right")) {
             velocityX = 10;
-            if(getImage() == walkIm1){
-            setImage(walkIm2);
-            }
-            else if (getImage() == walkIm2){
-             setImage(walkIm3);
-            }
-             else if (getImage() == walkIm3){
-             setImage(walkIm4);
-            }
-             else if (getImage() == walkIm4){
-             setImage(walkIm5);
-            }
-             else if (getImage() == walkIm5){
-             setImage(walkIm6);
-            }
-             else if (getImage() == walkIm6){
-             setImage(walkIm7);
-            }
-             else if (getImage() == walkIm7){
-             setImage(walkIm8);
-            }
-             else if (getImage() == walkIm8){
-             setImage(walkIm9);
-            }
-             else if (getImage() == walkIm9){
-             setImage(walkIm10);
-            }
-             else if (getImage() == walkIm10){
-             setImage(walkIm11);
-            }
-             else {
-                 setImage(walkIm1);
-            }
+            direction = "right";
+            animationWalk(getWidth(), getHeight(), 1);
+        } else {
+            animationStand(getWidth(), getHeight(), 1);
         }
     }
+    public void animationWalk(int width, int heigth, int player) {
+        if (status == 2) {
+            if (walkStatus >= 11) {
+                walkStatus = 1;
+            }
+            if (isOnGround) {
+                setImage("Player/p" + player + "_walk/PNG/p" + player + "_walk"
+                        + walkStatus + ".png");
+            } else {
+                setImage("Player/p" + player + "_jump.png");
+            }
+            mirror();
+            walkStatus++;
+            status = 0;
+        } else {
+            status++;
+        }
+        getImage().scale(width, heigth);
+    }
+    public void animationJump(int width, int heigth, int player) {
+        setImage("Player/p" + player + "_jump.png");
+        mirror();
+        getImage().scale(width, heigth);
+    }
+    public void animationStand(int width, int heigth, int player) {
+        if (isOnGround) {
+            setImage("Player/p" + player + "_walk/PNG/p" + player + "_walk1.png");
+            getImage().scale(width, heigth);
+            walkStatus = 1;
+        } else {
+            setImage("Player/p" + player + "_jump.png");
+        }
+        mirror();
+        getImage().scale(width, heigth);
+    }
+    public void mirror() {
+        if (direction.equals("left")) {
 
-    public int getWidth() {
+            getImage().mirrorHorizontally();
+
+        }
+    }public int getWidth() {
         return getImage().getWidth();
     }
-
     public int getHeight() {
         return getImage().getHeight();
     }
