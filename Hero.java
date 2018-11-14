@@ -113,7 +113,7 @@ public class Hero extends Mover {
                 walkStatus = 1;
             }
             if (isOnGround) {
-                setImage("Player/p" + player + "_walk/PNG/p" + player + "_walk"
+                setImage("p" + player + "_walk/PNG/p" + player + "_walk"
                         + walkStatus + ".png");
             } else {
                 setImage("Player/p" + player + "_jump.png");
