@@ -2,6 +2,7 @@
 /**
  *
  * @author R. Springer
+ * "authore2 W.Schaegen
  */
 public class TileFactory {
 
@@ -109,6 +110,7 @@ public class TileFactory {
                 break;
             case 23:
                 tile = new Tile("castleCliffRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = true;
                 break;
             case 24:
                 tile = new Tile("castleCliffRightAlt.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
@@ -690,192 +692,196 @@ public class TileFactory {
                 tile.isSolid = true;
                 break;
             case 172:
-                tile = new Tile("particleBrick1a.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("bomb.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = false;
                 break;
             case 173:
-                tile = new Tile("particleBrick1b.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("bombFlash.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 174:
-                tile = new Tile("particleBrick2a.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("bush.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 175:
-                tile = new Tile("particleBrick2b.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("buttonBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 176:
-                tile = new Tile("plant.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("buttonBlue_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 177:
-                tile = new Tile("plantPurple.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("buttonGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 178:
-                tile = new Tile("rock.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("buttonGreen_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 179:
-                tile = new Tile("snowhill.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("buttonRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
             case 180:
-                tile = new Tile("spikes.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("buttonRed_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
             case 181:
-                tile = new Tile("springboardDown.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 182:
-                tile = new Tile("springboardUp.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 183:
-                tile = new Tile("star.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 184:
-                tile = new Tile("switchLeft.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 185:
-                tile = new Tile("switchMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 186:
-                tile = new Tile("switchRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 187:
-                tile = new Tile("weight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 188:
-                tile = new Tile("weightChained.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 189:
-                tile = new Tile("bomb.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 190:
-                tile = new Tile("bombFlash.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 191:
-                tile = new Tile("bush.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 192:
-                tile = new Tile("buttonBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 193:
-                tile = new Tile("buttonBlue_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 194:
-                tile = new Tile("buttonGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 195:
-                tile = new Tile("buttonGreen_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 196:
-                tile = new Tile("buttonRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
-                break;
-            case 197:
-                tile = new Tile("buttonRed_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 198:
                 tile = new Tile("buttonYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
-            case 199:
+            case 182:
                 tile = new Tile("buttonYellow_pressed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 200:
-                tile = new Tile("cactus.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 201:
-                tile = new Tile("chain.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 202:
-                tile = new Tile("cloud1.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 203:
-                tile = new Tile("cloud2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 204:
-                tile = new Tile("cloud3.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 205:
-                tile = new Tile("coinBronze.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 206:
-                tile = new Tile("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 207:
-                tile = new Tile("coinSilver.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                break;
-            case 208:
-                tile = new Tile("fireball.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
-            case 209:
-                tile = new Tile("flagBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+            case 183:
+                tile = new Tile("cactus.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 210:
+            case 184:
+                tile = new Tile("chain.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 185:
+                tile = new Tile("cloud1.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 186:
+                tile = new Tile("cloud2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 187:
+                tile = new Tile("cloud3.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
+                break;
+            case 188:
+                tile = new Tile("coinBronze.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
+                break;
+            case 189:
+                tile = new Tile("coinGold.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 190:
+                tile = new Tile("coinSilver.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 191:
+                tile = new Tile("fireball.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 192:
+                tile = new Tile("flagBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
+                break;
+            case 193:
                 tile = new Tile("flagBlue2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 211:
+            case 194:
                 tile = new Tile("flagBlueHanging.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
                 break;
-            case 212:
+            case 195:
                 tile = new Tile("flagGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 213:
+            case 196:
                 tile = new Tile("flagGreen2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
                 break;
-            case 214:
+            case 197:
                 tile = new Tile("flagGreenHanging.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 215:
+            case 198:
                 tile = new Tile("flagRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
                 break;
-            case 216:
+            case 199:
                 tile = new Tile("flagRed2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 217:
+            case 200:
                 tile = new Tile("flagRedHanging.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 218:
+            case 201:
                 tile = new Tile("flagYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 219:
+            case 202:
                 tile = new Tile("flagYellow2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 220:
+            case 203:
                 tile = new Tile("flagYellowHanging.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 221:
+            case 204:
                 tile = new Tile("gemBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 222:
+            case 205:
                 tile = new Tile("gemGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 223:
+            case 206:
                 tile = new Tile("gemRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 224:
+            case 207:
                 tile = new Tile("gemYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 225:
+            case 208:
                 tile = new Tile("keyBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
                 break;
-            case 226:
+            case 209:
                 tile = new Tile("keyGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 227:
+            case 210:
                 tile = new Tile("keyRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 228:
+            case 211:
                 tile = new Tile("keyYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 229:
+            case 212:
                 tile = new Tile("mushroomBrown.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
-            case 230:
+            case 213:
                 tile = new Tile("mushroomRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 214:
+                tile = new Tile("particleBrick1a.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 215:
+                tile = new Tile("particleBrick1b.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 216:
+                tile = new Tile("particleBrick2a.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 217:
+                tile = new Tile("particleBrick2b.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 218:
+                tile = new Tile("plant.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 219:
+                tile = new Tile("plantPurple.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 220:
+                tile = new Tile("rock.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 221:
+                tile = new Tile("snowhill.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 222:
+                tile = new Tile("spikes.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = true;
+                break;
+            case 223:
+                tile = new Tile("springboardDown.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = true;
+                break;
+            case 224:
+                tile = new Tile("springboardUp.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 225:
+                tile = new Tile("star.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 226:
+                tile = new Tile("switchLeft.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 227:
+                tile = new Tile("switchMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 228:
+                tile = new Tile("switchRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                break;
+            case 229:
+                tile = new Tile("weight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = true;
+                break;
+            case 230:
+                tile = new Tile("weightChained.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = true;
                 break;
                 
             default:

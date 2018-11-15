@@ -25,7 +25,7 @@ public class Hero extends Mover {
 
     private boolean isOnGround;
 
-    private int walkStatus = 1;
+    private int walkStatus;
 
     private int status = 0;
 
@@ -37,18 +37,19 @@ public class Hero extends Mover {
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
-        walkIm1 = new GreenfootImage("p3_walk01.png");
-        walkIm2 = new GreenfootImage("p3_walk02.png");
-        walkIm3 = new GreenfootImage("p3_walk03.png");
-        walkIm4 = new GreenfootImage("p3_walk04.png");
-        walkIm5= new GreenfootImage("p3_walk05.png");
-        walkIm6 = new GreenfootImage("p3_walk06.png");
-        walkIm7 = new GreenfootImage("p3_walk07.png");
-        walkIm8 = new GreenfootImage("p3_walk08.png");
-        walkIm9 = new GreenfootImage("p3_walk09.png");
-        walkIm10 = new GreenfootImage("p3_walk10.png");
-        walkIm11 = new GreenfootImage("p3_walk11.png");
-        setImage("p3_stand.png");
+        
+        walkIm1 = new GreenfootImage("p2_walk1.png");
+        walkIm2 = new GreenfootImage("p2_walk2.png");
+        walkIm3 = new GreenfootImage("p2_walk3.png");
+        walkIm4 = new GreenfootImage("p2_walk4.png");
+        walkIm5= new GreenfootImage("p2_walk5.png");
+        walkIm6 = new GreenfootImage("p2_walk6.png");
+        walkIm7 = new GreenfootImage("p2_walk7.png");
+        walkIm8 = new GreenfootImage("p2_walk8.png");
+        walkIm9 = new GreenfootImage("p2_walk9.png");
+        walkIm10 = new GreenfootImage("p2_walk10.png");
+        walkIm11 = new GreenfootImage("p2_walk11.png");
+        setImage("p2_stand.png");
     }
 
     @Override
@@ -75,7 +76,7 @@ public class Hero extends Mover {
 
     }
         public void handleInput() {
-        //on ground check and handling
+        //gekregen van Gijs de Lange en zelf iets veranderd.
         width = getImage().getWidth() / 2;
         Tile tile = (Tile) getOneObjectAtOffset(0, getImage().getHeight() / 2 + 1, Tile.class);
         if (tile == null) {
@@ -91,20 +92,20 @@ public class Hero extends Mover {
         }
         if (Greenfoot.isKeyDown("space")) {
             if (isOnGround) {
-                velocityY = -15;
-                animationJump(getWidth(), getHeight(), 1);
+                velocityY = -17;
+                animationJump(getWidth(), getHeight(), 2);
             }
         }
-        if (Greenfoot.isKeyDown("left")) {
+        if (Greenfoot.isKeyDown("a")) {
             velocityX = -10;
             direction = "left";
-            animationWalk(getWidth(), getHeight(), 1);
-        } else if (Greenfoot.isKeyDown("right")) {
+            animationWalk(getWidth(), getHeight(), 2);
+        } else if (Greenfoot.isKeyDown("d")) {
             velocityX = 10;
             direction = "right";
-            animationWalk(getWidth(), getHeight(), 1);
+            animationWalk(getWidth(), getHeight(), 2);
         } else {
-            animationStand(getWidth(), getHeight(), 1);
+            animationStand(getWidth(), getHeight(), 2);
         }
     }
     public void animationWalk(int width, int heigth, int player) {
@@ -113,10 +114,10 @@ public class Hero extends Mover {
                 walkStatus = 1;
             }
             if (isOnGround) {
-                setImage("p" + player + "_walk/PNG/p" + player + "_walk"
+                setImage("p" + player + "_walk"
                         + walkStatus + ".png");
             } else {
-                setImage("Player/p" + player + "_jump.png");
+                setImage("p" + player + "_jump.png");
             }
             mirror();
             walkStatus++;
@@ -127,17 +128,17 @@ public class Hero extends Mover {
         getImage().scale(width, heigth);
     }
     public void animationJump(int width, int heigth, int player) {
-        setImage("Player/p" + player + "_jump.png");
+        setImage("p" + player + "_jump.png");
         mirror();
         getImage().scale(width, heigth);
     }
     public void animationStand(int width, int heigth, int player) {
         if (isOnGround) {
-            setImage("Player/p" + player + "_walk/PNG/p" + player + "_walk1.png");
+            setImage("p" + player + "_walk1.png");
             getImage().scale(width, heigth);
             walkStatus = 1;
         } else {
-            setImage("Player/p" + player + "_jump.png");
+            setImage("p" + player + "_jump.png");
         }
         mirror();
         getImage().scale(width, heigth);
