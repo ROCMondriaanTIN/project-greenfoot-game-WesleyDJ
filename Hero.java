@@ -38,18 +38,18 @@ public class Hero extends Mover {
         acc = 0.6;
         drag = 0.8;
         
-        walkIm1 = new GreenfootImage("p2_walk1.png");
-        walkIm2 = new GreenfootImage("p2_walk2.png");
-        walkIm3 = new GreenfootImage("p2_walk3.png");
-        walkIm4 = new GreenfootImage("p2_walk4.png");
-        walkIm5= new GreenfootImage("p2_walk5.png");
-        walkIm6 = new GreenfootImage("p2_walk6.png");
-        walkIm7 = new GreenfootImage("p2_walk7.png");
-        walkIm8 = new GreenfootImage("p2_walk8.png");
-        walkIm9 = new GreenfootImage("p2_walk9.png");
-        walkIm10 = new GreenfootImage("p2_walk10.png");
-        walkIm11 = new GreenfootImage("p2_walk11.png");
-        setImage("p2_stand.png");
+        walkIm1 = new GreenfootImage("p3_walk1.png");
+        walkIm2 = new GreenfootImage("p3_walk2.png");
+        walkIm3 = new GreenfootImage("p3_walk3.png");
+        walkIm4 = new GreenfootImage("p3_walk4.png");
+        walkIm5= new GreenfootImage("p3_walk5.png");
+        walkIm6 = new GreenfootImage("p3_walk6.png");
+        walkIm7 = new GreenfootImage("p3_walk7.png");
+        walkIm8 = new GreenfootImage("p3_walk8.png");
+        walkIm9 = new GreenfootImage("p3_walk9.png");
+        walkIm10 = new GreenfootImage("p3_walk10.png");
+        walkIm11 = new GreenfootImage("p3_walk11.png");
+        setImage("p3_stand.png");
     }
 
     @Override
@@ -93,19 +93,19 @@ public class Hero extends Mover {
         if (Greenfoot.isKeyDown("space")) {
             if (isOnGround) {
                 velocityY = -17;
-                animationJump(getWidth(), getHeight(), 2);
+                animationJump(getWidth(), getHeight(), 3);
             }
         }
         if (Greenfoot.isKeyDown("a")) {
             velocityX = -10;
             direction = "left";
-            animationWalk(getWidth(), getHeight(), 2);
+            animationWalk(getWidth(), getHeight(), 3);
         } else if (Greenfoot.isKeyDown("d")) {
             velocityX = 10;
             direction = "right";
-            animationWalk(getWidth(), getHeight(), 2);
+            animationWalk(getWidth(), getHeight(), 3);
         } else {
-            animationStand(getWidth(), getHeight(), 2);
+            animationStand(getWidth(), getHeight(), 3);
         }
     }
     public void animationWalk(int width, int heigth, int player) {
