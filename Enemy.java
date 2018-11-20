@@ -35,19 +35,7 @@ public class Enemy extends Mover {
         }
             setImage("slimeWalk" + walkStatus + ".png");
             walkStatus ++;
-        
-        
-    
-    /*
-       if (getImage().equals  (slimew1))
-        {
-            setImage(slimew2);
-        }
-        else 
-        {
-            setImage(slimew1);
-        }
-        */
+
         status = 0;
    if (direction.equals("right")) {
        getImage().mirrorHorizontally();

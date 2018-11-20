@@ -100,4 +100,18 @@ public class Mover extends Actor {
                 + "velocityX: " + velocityX + "\n"
                 + "velocityY: " + velocityY + "\n";
     }
+     public boolean atWorldEdge()
+    {
+        if(getX() < 0) {
+            setLocation(0, getY());
+            return true;
+        }
+        if(getX() > TileEngine.MAP_WIDTH * TileEngine.TILE_WIDTH){
+            setLocation(TileEngine.MAP_WIDTH * TileEngine.TILE_WIDTH, getY());
+            return true;
+        }
+        else
+            return false;
+    }
+
 }

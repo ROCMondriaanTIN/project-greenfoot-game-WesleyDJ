@@ -22,7 +22,8 @@ public class Hero extends Mover {
     private GreenfootImage walkIm10;
     private GreenfootImage walkIm11;
     private int width;
-
+    int x = 579;
+    int y = 200;
     private boolean isOnGround;
 
     private int walkStatus;
@@ -55,7 +56,7 @@ public class Hero extends Mover {
     @Override
     public void act() {
         handleInput();
-        
+        atWorldEdge();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -65,7 +66,13 @@ public class Hero extends Mover {
 
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                getWorld().removeObject(this);
+                setLocation(x, y);
+                break;
+            }
+        }
+         for (Actor Coin : getIntersectingObjects(Coin.class)) {
+            if (Coin != null) {
+                setLocation(x, y);
                 break;
             }
         }
@@ -155,4 +162,7 @@ public class Hero extends Mover {
     public int getHeight() {
         return getImage().getHeight();
     }
+    /*public int coinSwitch() {
+        If
+*/
 }
