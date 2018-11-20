@@ -13,7 +13,9 @@ public class Enemy extends Mover {
    private int speed;
    private GreenfootImage slimew1 = new GreenfootImage("slimeWalk1.png");
    private GreenfootImage slimew2 = new GreenfootImage("slimeWalk2.png");
-   private String direction = "right";   
+   private String direction = "left";  
+   private int status;
+   private int walkStatus = 1;
 
     
    public Enemy() {
@@ -26,21 +28,39 @@ public class Enemy extends Mover {
     }
    public void switchSlime()
    {
-   if (getImage().equals  (slimew1))
+   if (status == 2){ 
+    
+       if (walkStatus > 2){
+           walkStatus = 1;
+        }
+            setImage("slimeWalk" + walkStatus + ".png");
+            walkStatus ++;
+        
+        
+    
+    /*
+       if (getImage().equals  (slimew1))
         {
             setImage(slimew2);
-            direction = "left";
         }
         else 
         {
             setImage(slimew1);
         }
+        */
+        status = 0;
+   if (direction.equals("right")) {
+       getImage().mirrorHorizontally();
    }
+}else{
+    status++;
+}
+  }
    @Override
     public void act() {
         int x = getX();
         int y = getY();
-        switchSlime();
+       
         if (firstAct) {
             firstAct = false;
             xMin = x - walkRange / 2;
@@ -49,13 +69,22 @@ public class Enemy extends Mover {
         velocityX = speed;
         applyVelocity();
         if (getX() >= xMax) {
-            speed *= -1;
-            x = xMax;
-            getImage().mirrorHorizontally();
-        } else if (getX() <= xMin) {
-            speed *= -1;
-            x = xMin;
-            getImage().mirrorHorizontally();
-        }
+                speed *= -1;
+                x = xMax;
+                direction = "left";
+                
+            } else if (getX() <= xMin) {
+                speed *= -1;
+                x = xMin;
+                direction = "right";
+
+            }
+            
+         switchSlime();
    }
+   public void mirror(){
+       if (direction.equals("right")){
+       getImage().mirrorHorizontally();
+    }  
+    }
 }

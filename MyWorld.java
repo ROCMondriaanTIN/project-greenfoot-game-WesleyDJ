@@ -143,7 +143,7 @@ int[][] map3 = {
 
 };
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
-        TileEngine te = new TileEngine(this, 70, 70, map3);
+        TileEngine te = new TileEngine(this, 70, 70, map2);
         // Declarenre en initialiseren van de camera klasse met de TileEngine klasse 
         // zodat de camera weet welke tiles allemaal moeten meebewegen met de camera
         Camera camera = new Camera(te);
@@ -156,7 +156,7 @@ int[][] map3 = {
 
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 0, 0);
-        addObject(hero, 300, 200);
+        addObject(hero, 579, 200);//2755
         addObject(new Enemy(), 1170, 410);
         
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
