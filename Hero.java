@@ -10,49 +10,20 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
-    private GreenfootImage walkIm1;
-    private GreenfootImage walkIm2;
-    private GreenfootImage walkIm3;
-    private GreenfootImage walkIm4;
-    private GreenfootImage walkIm5;
-    private GreenfootImage walkIm6;
-    private GreenfootImage walkIm7;
-    private GreenfootImage walkIm8;
-    private GreenfootImage walkIm9;
-    private GreenfootImage walkIm10;
-    private GreenfootImage walkIm11;
     private int width;
-    int x = 579;
-    int y = 200;
+    int x = 596;
+    int y = 3035;
     private boolean isOnGround;
-
     private int walkStatus;
-
     private int status = 0;
-
     private String direction = "right";   
-
-
     public Hero() {
         super();
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
-        
-        walkIm1 = new GreenfootImage("p3_walk1.png");
-        walkIm2 = new GreenfootImage("p3_walk2.png");
-        walkIm3 = new GreenfootImage("p3_walk3.png");
-        walkIm4 = new GreenfootImage("p3_walk4.png");
-        walkIm5= new GreenfootImage("p3_walk5.png");
-        walkIm6 = new GreenfootImage("p3_walk6.png");
-        walkIm7 = new GreenfootImage("p3_walk7.png");
-        walkIm8 = new GreenfootImage("p3_walk8.png");
-        walkIm9 = new GreenfootImage("p3_walk9.png");
-        walkIm10 = new GreenfootImage("p3_walk10.png");
-        walkIm11 = new GreenfootImage("p3_walk11.png");
         setImage("p3_stand.png");
     }
-
     @Override
     public void act() {
         handleInput();
@@ -63,7 +34,6 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
-
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 setLocation(x, y);
@@ -162,7 +132,23 @@ public class Hero extends Mover {
     public int getHeight() {
         return getImage().getHeight();
     }
-    /*public int coinSwitch() {
-        If
-*/
+    public void coinSwitch() {
+       for(Actor coin : getIntersectingObjects(Coin.class))
+       {
+           if(coin != null){
+            break;
+            }
+    }
 }
+  public void checkForBlock(){
+      for (Tile tile : getIntersectingObjects(Tile.class)){
+        if(tile!= null){
+            if(tile.getImage().toString().contains("liquid")){
+                setLocation(x, y);
+                break;            
+            }
+        }
+    }
+}
+}
+

@@ -155,9 +155,9 @@ int[][] map3 = {
         camera.follow(hero);
 
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
-        addObject(camera, 0, 0);
+        addObject(camera, 596, 3035);
         addObject(hero, 596, 3035);//2755
-        addObject(new Enemy(), 1290, 2400);
+        addObject(new Enemy(), 1290, 2440);
         
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.
