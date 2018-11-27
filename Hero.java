@@ -25,7 +25,7 @@ public class Hero extends Mover {
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
-        setImage("p3_stand.png");
+        setImage("p" + setPlaynumber + ".png");
     }
     @Override
     public void act() {
@@ -65,7 +65,7 @@ public class Hero extends Mover {
         }
         for (Tile tile : getIntersectingObjects(Tile.class)){
         if(tile!= null){
-            if(tile.getImage().toString().contains("liquid")){
+            if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
                 setLocation(x, y);
                 setPlaynumber = 2;
                 Greenfoot.setWorld(new MyWorld());
@@ -120,7 +120,7 @@ public class Hero extends Mover {
         }
     }
     public void animationWalk(int width, int heigth, int player) {
-      //  walkStatus = 1;
+        //walkStatus = 2;
         if (status == 2) {
             if (walkStatus >= 11) {
                 walkStatus = 1;
@@ -170,13 +170,5 @@ public class Hero extends Mover {
     public int getHeight() {
         return getImage().getHeight();
     }
-    public void coinSwitch() {
-       for(Actor coin : getIntersectingObjects(Coin.class))
-       {
-           if(coin != null){
-            break;
-            }
-    }
-}
 }
 
