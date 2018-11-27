@@ -22,7 +22,7 @@ public class Enemy extends Mover {
         super();
         setImage("slimeWalk1.png");
         getImage().mirrorHorizontally();
-        walkRange = 140;
+        walkRange = 230;
         firstAct = true;
         speed = 3;
     }

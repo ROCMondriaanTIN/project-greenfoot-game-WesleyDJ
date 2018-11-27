@@ -17,6 +17,9 @@ public class Hero extends Mover {
     private int walkStatus;
     private int status = 0;
     private String direction = "right";   
+    private int setPlaynumber = 1;
+    private int springNum;
+    private int playerNum = 1;
     public Hero() {
         super();
         gravity = 9.8;
@@ -36,15 +39,39 @@ public class Hero extends Mover {
         applyVelocity();
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                setLocation(x, y);
+               // setLocation(x, y);
+                Greenfoot.setWorld(new MyWorld());
                 break;
             }
         }
-         for (Actor Coin : getIntersectingObjects(Coin.class)) {
-            if (Coin != null) {
-                setLocation(x, y);
-                break;
+        for (Tile tile : getIntersectingObjects(Tile.class)){
+           if(tile!= null){
+             if(tile.getImage().toString().contains("hud_p1Alt")){
+                 setPlaynumber = 1;
+                 getWorld().removeObject(tile);
+                 break;
+            }else if(tile.getImage().toString().contains("hud_p2Alt")){
+                 setPlaynumber = 2;
+                 getWorld().removeObject(tile);
+                 break;
+            }else if(tile.getImage().toString().contains("hud_p3Alt")){
+                 setPlaynumber = 3;
+                 getWorld().removeObject(tile);
+                 break;
+            }else if(tile.getImage().toString().contains("star")){
+            getWorld().removeObject(tile);
             }
+          }   
+        }
+        for (Tile tile : getIntersectingObjects(Tile.class)){
+        if(tile!= null){
+            if(tile.getImage().toString().contains("liquid")){
+                setLocation(x, y);
+                setPlaynumber = 2;
+                Greenfoot.setWorld(new MyWorld());
+                break;            
+            }
+        }
         }
     }
     private double posToNeg(double x) {
@@ -54,6 +81,13 @@ public class Hero extends Mover {
     }
         public void handleInput() {
         //gekregen van Gijs de Lange en zelf iets veranderd.
+        if(setPlaynumber == 1){
+        springNum = -14;
+        }else if(setPlaynumber == 2){
+        springNum = -17;
+        }else if(setPlaynumber == 3){
+        springNum = -11;
+        }
         width = getImage().getWidth() / 2;
         Tile tile = (Tile) getOneObjectAtOffset(0, getImage().getHeight() / 2 + 1, Tile.class);
         if (tile == null) {
@@ -69,23 +103,24 @@ public class Hero extends Mover {
         }
         if (Greenfoot.isKeyDown("space")) {
             if (isOnGround) {
-                velocityY = -17;
-                animationJump(getWidth(), getHeight(), 3);
+                velocityY = springNum;
+                animationJump(getWidth(), getHeight(), setPlaynumber);
             }
         }
         if (Greenfoot.isKeyDown("a")) {
             velocityX = -10;
             direction = "left";
-            animationWalk(getWidth(), getHeight(), 3);
+            animationWalk(getWidth(), getHeight(), setPlaynumber);
         } else if (Greenfoot.isKeyDown("d")) {
             velocityX = 10;
             direction = "right";
-            animationWalk(getWidth(), getHeight(), 3);
+            animationWalk(getWidth(), getHeight(), setPlaynumber);
         } else {
-            animationStand(getWidth(), getHeight(), 3);
+            animationStand(getWidth(), getHeight(), setPlaynumber);
         }
     }
     public void animationWalk(int width, int heigth, int player) {
+      //  walkStatus = 1;
         if (status == 2) {
             if (walkStatus >= 11) {
                 walkStatus = 1;
@@ -127,6 +162,9 @@ public class Hero extends Mover {
 
         }
     }public int getWidth() {
+      /*  if(setPlaynumber == 1){
+        
+        }*/
         return getImage().getWidth();
     }
     public int getHeight() {
@@ -138,16 +176,6 @@ public class Hero extends Mover {
            if(coin != null){
             break;
             }
-    }
-}
-  public void checkForBlock(){
-      for (Tile tile : getIntersectingObjects(Tile.class)){
-        if(tile!= null){
-            if(tile.getImage().toString().contains("liquid")){
-                setLocation(x, y);
-                break;            
-            }
-        }
     }
 }
 }
