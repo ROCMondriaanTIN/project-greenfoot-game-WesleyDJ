@@ -18,10 +18,8 @@ public class Hero extends Mover {
     private int status = 0;
     private String direction = "right";   
     private int setPlaynumber = 1;
-    private int springNumy;
+    private int springNum;
     private int playerNum = 1;
-    private int walkL = -10;
-    private int walkR = 10;
     public Hero() {
         super();
         gravity = 9.8;
@@ -78,26 +76,24 @@ public class Hero extends Mover {
     }
     private double posToNeg(double x) {
 
+<<<<<<< HEAD
         return (x - (x * 2));
+=======
+    public void handleInput() {
+        if (Greenfoot.isKeyDown("w")) {
+            velocityY = -20;
+        }
+>>>>>>> 4372fff5ea53a9c16ee13c8083969eac7aeee2f9
 
     }
         public void handleInput() {
         //gekregen van Gijs de Lange en zelf iets veranderd.
         if(setPlaynumber == 1){
-        getImage().scale(82, 97);
-        springNumy = -14;
-        walkL = -10;
-        walkR = 10;
+        springNum = -14;
         }else if(setPlaynumber == 2){
-        getImage().scale(82, 120);
-        springNumy = -17;
-        walkL = -10;
-        walkR = 10;
+        springNum = -17;
         }else if(setPlaynumber == 3){
-        getImage().scale(56, 64);
-        springNumy = -11;
-        walkL = -7;
-        walkR = 7;
+        springNum = -11;
         }
         width = getImage().getWidth() / 2;
         Tile tile = (Tile) getOneObjectAtOffset(0, getImage().getHeight() / 2 + 1, Tile.class);
@@ -114,16 +110,16 @@ public class Hero extends Mover {
         }
         if (Greenfoot.isKeyDown("space")) {
             if (isOnGround) {
-                velocityY = springNumy;
+                velocityY = springNum;
                 animationJump(getWidth(), getHeight(), setPlaynumber);
             }
         }
         if (Greenfoot.isKeyDown("a")) {
-            velocityX = walkL;
+            velocityX = -10;
             direction = "left";
             animationWalk(getWidth(), getHeight(), setPlaynumber);
         } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = walkR;
+            velocityX = 10;
             direction = "right";
             animationWalk(getWidth(), getHeight(), setPlaynumber);
         } else {
