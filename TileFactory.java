@@ -2,10 +2,9 @@
 /**
  *
  * @author R. Springer
- * "authore2 W.Schaegen
+ * "authore W.Schaegen" 
  */
 public class TileFactory {
-
     /**
      * Creates a Tile object based on the mapIcon number you give
      *
@@ -907,8 +906,13 @@ public class TileFactory {
             case 233:
                 tile = new Tile("hud_p3Alt.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 break;
+            case 234:
+                tile = new Tile("weightChained.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.getImage().setTransparency(0);
+                tile.isSolid = true;
+                break;
             default:
-                tile = new Tile("grassMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Tile("",TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
         }

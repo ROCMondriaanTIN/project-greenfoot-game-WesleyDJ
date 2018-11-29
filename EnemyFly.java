@@ -5,19 +5,17 @@ import greenfoot.*;
  *
  * @author R. Springer
  */
-public class Enemy extends Mover {
+public class EnemyFly extends Mover {
    private int walkRange;
    private int xMin;
    private int xMax;
    private boolean firstAct;
    private int speed;
-   private GreenfootImage slimew1 = new GreenfootImage("slimeWalk1.png");
-   private GreenfootImage slimew2 = new GreenfootImage("slimeWalk2.png");
    private String direction = "left";  
    private int status;
    private int walkStatus = 1;
     
-  public Enemy() {
+  public EnemyFly() {
         super();
         setImage("slimeWalk1.png");
         getImage().mirrorHorizontally();
@@ -25,13 +23,13 @@ public class Enemy extends Mover {
         firstAct = true;
         speed = 3;
     }
-  public void switchSlime()
+   public void switchFly()
    {
    if (status == 2){     
    if (walkStatus > 2){
            walkStatus = 1;
     }
-   setImage("slimeWalk" + walkStatus + ".png");
+   setImage("flyFly" + walkStatus + ".png");
    walkStatus ++;
    status = 0;
    if (direction.equals("right")) {
@@ -61,7 +59,7 @@ public class Enemy extends Mover {
                 x = xMin;
                 direction = "right";
         }            
-        switchSlime();
+        switchFly();
    }
   public void mirror(){
        if (direction.equals("right")){

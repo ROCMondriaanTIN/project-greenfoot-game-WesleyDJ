@@ -14,12 +14,10 @@ public class TileEngine {
     public static int SCREEN_WIDTH;
     public static int MAP_WIDTH;
     public static int MAP_HEIGHT;
-
     private World world;
     private int[][] map;
     private Tile[][] generateMap;
     private TileFactory tileFactory;
-
     /**
      * Constuctor of the TileEngine
      *
@@ -37,7 +35,6 @@ public class TileEngine {
         SCREEN_HEIGHT = world.getHeight();
         this.tileFactory = new TileFactory();
     }
-
     /**
      * Constuctor of the TileEngine
      *

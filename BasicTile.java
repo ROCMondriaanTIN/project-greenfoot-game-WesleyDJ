@@ -6,18 +6,14 @@ import greenfoot.*;
  * @author R. Springer
  */
 public class BasicTile extends Actor {
-
     public boolean isSolid = false;
     public int _id;
-
     protected static int id;
-
     protected TileType type = TileType.DEFAULT;
     protected int mapIcon = -1;
     protected int mapID = -1;
     private int colom = -1;
     protected int row = -1;
-
     /**
      * Constructor of the tile. Creates a tile based on image, width and height
      *
@@ -35,7 +31,6 @@ public class BasicTile extends Actor {
         _id = id;
         id++;
     }
-
     /**
      * Constructor for the use of a type
      *
@@ -48,7 +43,6 @@ public class BasicTile extends Actor {
         this(image, width, heigth);
         this.type = type;
     }
-
     @Override
     public String toString() {
         return "id: " + _id + "\n"
@@ -56,43 +50,33 @@ public class BasicTile extends Actor {
                 + "Y: " + getY() + "\n"
                 + "Type: " + getType();
     }
-
     public TileType getType() {
         return type;
     }
-
     public void setType(TileType type) {
         this.type = type;
     }
-
     public int getMapIcon() {
         return mapIcon;
     }
-
     public void setMapIcon(int mapIcon) {
         this.mapIcon = mapIcon;
     }
-
     public int getMapID() {
         return mapID;
     }
-
     public void setMapID(int mapID) {
         this.mapID = mapID;
     }
-
     public int getColom() {
         return colom;
     }
-
     public void setColom(int colom) {
         this.colom = colom;
     }
-
     public int getRow() {
         return row;
     }
-
     public void setRow(int row) {
         this.row = row;
     }
