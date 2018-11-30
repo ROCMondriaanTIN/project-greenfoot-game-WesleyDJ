@@ -22,6 +22,7 @@ public class Hero extends Mover {
     private int walkL = -10;
     private int walkR = 10;
     public static int diamanten;
+    public static int sterren;
    public Hero() {
         super();
         gravity = 9.8;
@@ -31,14 +32,14 @@ public class Hero extends Mover {
     }
    @Override
      public void act() {
-        handleInput();
-        atWorldEdge();
-        velocityX *= drag;
-        velocityY += acc;
+      handleInput();
+      atWorldEdge();
+      velocityX *= drag;
+      velocityY += acc;
       if (velocityY > gravity) {
             velocityY = gravity;
         }
-      applyVelocity();
+   applyVelocity();
 for (Actor enemy : getIntersectingObjects(Enemy.class)) {
       if (enemy != null) {
              Greenfoot.setWorld(new MyWorld());
@@ -82,79 +83,91 @@ for (Actor enemy : getIntersectingObjects(Enemy.class)) {
               }
           }
       }
+      Actor star = getOneIntersectingObject(Star.class);
+      {
+          if(star != null)
+          {
+                World myWorlds = getWorld();
+                getWorld().removeObject(star);
+                sterren++;
+                MyWorld world = getWorldOfType(MyWorld.class);
+                if(world!= null) {
+                    world.getScoreboardStar().addStars();
+              }
+          }
+      }
 }
 }}
-    private double posToNeg(double x) {
-        return (x - (x * 2));
+private double posToNeg(double x) {
+     return (x - (x * 2));
+ }  
+public void handleInput() {
+    //gekregen van Gijs de Lange en zelf iets veranderd.
+    if(setPlaynumber == 1){
+      getImage().scale(82, 97);
+      springNumy = -14;
+      walkL = -10;
+      walkR = 10;
+      }else if(setPlaynumber == 2){
+      getImage().scale(82, 120);
+      springNumy = -17;
+      walkL = -10;
+      walkR = 10;
+      }else if(setPlaynumber == 3){
+      getImage().scale(56, 64);
+      springNumy = -11;
+      walkL = -7;
+      walkR = 7;
     }
-        public void handleInput() {
-        //gekregen van Gijs de Lange en zelf iets veranderd.
-        if(setPlaynumber == 1){
-        getImage().scale(82, 97);
-        springNumy = -14;
-        walkL = -10;
-        walkR = 10;
-        }else if(setPlaynumber == 2){
-        getImage().scale(82, 120);
-        springNumy = -17;
-        walkL = -10;
-        walkR = 10;
-        }else if(setPlaynumber == 3){
-        getImage().scale(56, 64);
-        springNumy = -11;
-        walkL = -7;
-        walkR = 7;
-        }
-        width = getImage().getWidth() / 2;
-        Tile tile = (Tile) getOneObjectAtOffset(0, getImage().getHeight() / 2 + 1, Tile.class);
-        if (tile == null) {
-            tile = (Tile) getOneObjectAtOffset(this.width - 3, getImage().getHeight() / 2 + 1, Tile.class);
-        }
-        if (tile == null) {
-            tile = (Tile) getOneObjectAtOffset((int) posToNeg(this.width) + 3, getImage().getHeight() / 2 + 1, Tile.class);
-        }
-        if (tile != null && tile.isSolid) {
-            isOnGround = true;
-        } else {
-            isOnGround = false;
-        }
-        if (Greenfoot.isKeyDown("space")) {
-            if (isOnGround) {
-                velocityY = springNumy;
-                animationJump(getWidth(), getHeight(), setPlaynumber);
-            }
-        }
-        if (Greenfoot.isKeyDown("a")) {
-            velocityX = walkL;
-            direction = "left";
-            animationWalk(getWidth(), getHeight(), setPlaynumber);
-        } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = walkR;
-            direction = "right";
-            animationWalk(getWidth(), getHeight(), setPlaynumber);
-        } else {
-            animationStand(getWidth(), getHeight(), setPlaynumber);
+      width = getImage().getWidth() / 2;
+      Tile tile = (Tile) getOneObjectAtOffset(0, getImage().getHeight() / 2 + 1, Tile.class);
+    if (tile == null) {
+          tile = (Tile) getOneObjectAtOffset(this.width - 3, getImage().getHeight() / 2 + 1, Tile.class);
+    }
+    if (tile == null) {
+          tile = (Tile) getOneObjectAtOffset((int) posToNeg(this.width) + 3, getImage().getHeight() / 2 + 1, Tile.class);
+    }
+    if (tile != null && tile.isSolid) {
+         isOnGround = true;
+     } else {
+         isOnGround = false;
+    }
+    if (Greenfoot.isKeyDown("space")) {
+        if (isOnGround) {
+            velocityY = springNumy;
+            animationJump(getWidth(), getHeight(), setPlaynumber);
         }
     }
-    public void animationWalk(int width, int heigth, int player) {
-        //walkStatus = 2;
-        if (status == 2) {
-            if (walkStatus >= 11) {
-                walkStatus = 1;
-            }
-            if (isOnGround) {
-                setImage("p" + player + "_walk"
-                        + walkStatus + ".png");
-            } else {
-                setImage("p" + player + "_jump.png");
-            }
-            mirror();
-            walkStatus++;
-            status = 0;
-        } else {
-            status++;
-        }
-        getImage().scale(width, heigth);
+    if (Greenfoot.isKeyDown("a")) {
+          velocityX = walkL;
+          direction = "left";
+          animationWalk(getWidth(), getHeight(), setPlaynumber);
+     } else if (Greenfoot.isKeyDown("d")) {
+          velocityX = walkR;
+          direction = "right";
+          animationWalk(getWidth(), getHeight(), setPlaynumber);
+     } else {
+          animationStand(getWidth(), getHeight(), setPlaynumber);
+    }
+    }
+public void animationWalk(int width, int heigth, int player) {
+     if (status == 2) {
+         if (walkStatus >= 11) {
+              walkStatus = 1;
+         }
+         if (isOnGround) {
+              setImage("p" + player + "_walk"
+              + walkStatus + ".png");
+          } else {
+              setImage("p" + player + "_jump.png");
+         }
+         mirror();
+         walkStatus++;
+         status = 0;
+          } else {
+              status++;
+     }
+     getImage().scale(width, heigth);
     }
     public void animationJump(int width, int heigth, int player) {
         setImage("p" + player + "_jump.png");

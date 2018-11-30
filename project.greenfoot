@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Nov 29 14:39:48 CET 2018
+#Fri Nov 30 09:03:07 CET 2018
 target16.name=DemoHero
 dependency35.to=CollisionEngine
 target2.name=Diamant
@@ -8,6 +8,7 @@ dependency11.type=UsesDependency
 dependency18.type=UsesDependency
 dependency15.from=BasicTile
 dependency8.to=Camera
+class.Star.superclass=Collectable
 target14.type=EnumTarget
 simulation.speed=48
 dependency25.type=UsesDependency
@@ -147,6 +148,7 @@ target7.naviview.expanded=true
 target6.name=Mover
 target16.showInterface=false
 class.BasicTile.superclass=greenfoot.Actor
+class.ScoreboardStar.superclass=greenfoot.Actor
 dependency15.type=UsesDependency
 dependency42.to=Hero
 dependency12.from=Mover
@@ -329,6 +331,7 @@ dependency2.type=UsesDependency
 target4.y=0
 dependency42.type=UsesDependency
 target4.x=0
+class.StarHud.superclass=greenfoot.Actor
 target12.height=50
 dependency6.from=TileEngine
 dependency9.type=UsesDependency

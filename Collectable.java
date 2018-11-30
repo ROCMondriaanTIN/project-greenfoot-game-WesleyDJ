@@ -15,5 +15,6 @@ public class Collectable extends Mover
     public void act() 
     {
         ArrayList<Diamand> myWorld = new ArrayList<Diamand>();
+        ArrayList<Star> myWorlds = new ArrayList<Star>();
     }    
 }

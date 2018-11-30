@@ -6,20 +6,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Diamand extends Collectable
+public class Star extends Collectable
 {
     public static int sID;
     private int id;
-    public Diamand(){
-        setImage("gemBlue.png");
+    public Star(){
+        setImage("star.png");
         this.id = sID;
         sID++;
     }
     public void act() 
     {
         applyVelocity();   
-        for(Actor diamand : getIntersectingObjects(Diamand.class)) {
-            if (diamand != null) {
+        for(Actor star : getIntersectingObjects(Star.class)) {
+            if (star != null) {
                 getWorld().removeObject(this);
                 break;
             }

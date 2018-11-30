@@ -1,14 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Diamant here.
+ * Write a description of class StarHud here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Diamant extends Actor
+public class StarHud extends Actor
 {
-    public Diamant(){
-        setImage("gemBlue.png");
+    public StarHud(){
+        setImage("star.png");
     }
 }
+    

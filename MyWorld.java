@@ -8,6 +8,7 @@ public class MyWorld extends World {
 
     private CollisionEngine ce;
     private Scoreboard scoreboard;
+    private ScoreboardStar scoreboardstar;
     /**
      * Constructor for objects of class MyWorld.
      *
@@ -155,9 +156,13 @@ int[][] map3 = {
         addObject(camera, 0, 0);
         Diamand diamond = new Diamand();
         //addObject(diamond, 1547, 2741);
-        addObject(new Diamand(), 1547, 2741);
+        addObject(new Diamand(),1573 ,2760 );
+        addObject(new Star(), 35,1641);
         addObject(new Diamant(), 900, 758);
+        addObject(new StarHud(), 475, 20);
         scoreboard = new Scoreboard();
+        scoreboardstar = new ScoreboardStar();
+        addObject(scoreboardstar, 525, 23);
         addObject(scoreboard, 949, 760);
         addObject(hero, 596, 3035);//map2 2755 //map3 3035
         addObject(new Enemy(), 1255, 2440);
@@ -174,6 +179,9 @@ int[][] map3 = {
     }
      public Scoreboard getScoreboard() {
         return scoreboard;
+    }
+    public ScoreboardStar getScoreboardStar(){
+        return scoreboardstar;
     }
     @Override
     public void act() {
