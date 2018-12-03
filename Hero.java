@@ -46,6 +46,12 @@ for (Actor enemy : getIntersectingObjects(Enemy.class)) {
              break;
          }
       }
+for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
+      if (enemy != null) {
+             Greenfoot.setWorld(new MyWorld());
+             break;
+         }
+      }      
       for (Tile tile : getIntersectingObjects(Tile.class)){
       if(tile!= null){
           if(tile.getImage().toString().contains("hud_p1Alt")){
@@ -148,6 +154,15 @@ public void handleInput() {
           animationWalk(getWidth(), getHeight(), setPlaynumber);
      } else {
           animationStand(getWidth(), getHeight(), setPlaynumber);
+    }
+    if(Greenfoot.isKeyDown("j")){
+     setPlaynumber = 1;
+    }
+    if(Greenfoot.isKeyDown("k")){
+     setPlaynumber = 2;
+    }
+    if(Greenfoot.isKeyDown("l")){
+     setPlaynumber = 3;
     }
     }
 public void animationWalk(int width, int heigth, int player) {
