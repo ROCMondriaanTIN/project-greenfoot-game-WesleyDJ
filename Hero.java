@@ -23,12 +23,16 @@ public class Hero extends Mover {
     private int walkR = 10;
     public static int diamanten;
     public static int sterren;
-   public Hero() {
+    private ScoreboardStar scoreboardStar;
+    private Scoreboard scoreboard;
+   public Hero(ScoreboardStar scoreboardStar, Scoreboard scoreboard) {
         super();
         gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
         setImage("p" + setPlaynumber + ".png");
+        this.scoreboardStar = scoreboardStar;
+        this.scoreboard = scoreboard;
     }
    @Override
      public void act() {
@@ -36,7 +40,7 @@ public class Hero extends Mover {
       atWorldEdge();
       velocityX *= drag;
       velocityY += acc;
-      if (velocityY > gravity) {
+if (velocityY > gravity) {
             velocityY = gravity;
         }
    applyVelocity();
@@ -53,7 +57,7 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
          }
       }      
       for (Tile tile : getIntersectingObjects(Tile.class)){
-      if(tile!= null){
+    if(tile!= null){
           if(tile.getImage().toString().contains("hud_p1Alt")){
                  setPlaynumber = 1;
                  getWorld().removeObject(tile);
@@ -66,17 +70,21 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
                  setPlaynumber = 3;
                  getWorld().removeObject(tile);
                  break;
-         }else if(tile.getImage().toString().contains("star")){
-            getWorld().removeObject(tile);
-      }else         if(tile!= null){
-            if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
+      }else if(tile.getImage().toString().contains("star")) {
+             getWorld().removeObject(tile);
+             scoreboardStar.addStars();
+             break;
+      }else if(tile.getImage().toString().contains("gem")) {
+             getWorld().removeObject(tile);
+             scoreboard.addDiamanten();
+             break;
+      }else if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
                 setLocation(x, y);
-                setPlaynumber = 2;
                 Greenfoot.setWorld(new MyWorld());
                 break;            
-            }
-      }
-       Actor diamand = getOneIntersectingObject(Diamand.class);
+    }
+    Actor diamand = getOneIntersectingObject(Diamand.class);
+    
       {
           if(diamand != null)
           {
@@ -89,7 +97,7 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
               }
           }
       }
-      Actor star = getOneIntersectingObject(Star.class);
+    /*  Actor star = getOneIntersectingObject(Star.class);
       {
           if(star != null)
           {
@@ -101,7 +109,7 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
                     world.getScoreboardStar().addStars();
               }
           }
-      }
+      }*/
 }
 }}
 private double posToNeg(double x) {
