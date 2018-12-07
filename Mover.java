@@ -100,7 +100,7 @@ public class Mover extends Actor {
                 + "velocityX: " + velocityX + "\n"
                 + "velocityY: " + velocityY + "\n";
     }
-     public boolean atWorldEdge()
+   /*  public boolean atWorldEdge()
     {
         if(getX() < 0) {
             setLocation(0, getY());
@@ -112,6 +112,6 @@ public class Mover extends Actor {
         }
         else
             return false;
-    }
-
+    }*/
 }
+
