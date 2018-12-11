@@ -72,7 +72,7 @@ public class Level1 extends MyWorld
     public void load() {
         Greenfoot.setWorld(this);
         
-        create(1, 596, 3035);
+        create(1, 596, 3000);
         
         addObject(new Enemy(), 1255, 2440);
         addObject(new EnemyFly(), 1255, 2400);

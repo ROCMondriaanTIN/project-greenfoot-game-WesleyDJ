@@ -39,7 +39,6 @@ public class Hero extends Mover {
         this.scoreboardStar = scoreboardStar;
         this.scoreboard = scoreboard;
         this.scoreboardKey = scoreboardKey;
-        System.out.println("test");
     }
    @Override
      public void act() {

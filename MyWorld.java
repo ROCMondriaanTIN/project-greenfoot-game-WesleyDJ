@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public abstract class MyWorld extends World {
 
     private CollisionEngine ce;
-    private Scoreboard scoreboard;
-    private ScoreboardStar scoreboardstar;
-    private ScoreboardKey scoreboardkey;
-    protected Hero hero;
+    private static Scoreboard scoreboard;
+    private static ScoreboardStar scoreboardstar;
+    private static ScoreboardKey scoreboardkey;
+    protected static Hero hero;
     int[][] map;
     Camera camera;
     TileEngine te;
@@ -25,7 +25,7 @@ public abstract class MyWorld extends World {
         scoreboardstar = new ScoreboardStar();
         scoreboard = new Scoreboard();
         scoreboardkey = new ScoreboardKey();
-        Hero hero = new Hero(scoreboardstar,scoreboard,scoreboardkey);
+        hero = new Hero(scoreboardstar,scoreboard,scoreboardkey);
         firstWorld = false;
         }
         this.setBackground("bg.png");      
