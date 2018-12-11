@@ -10,8 +10,8 @@ public class Hero extends Mover {
     private final double acc;
     private final double drag;
     private int width;
-    int x = 596;
-    int y = 3035;
+    private int spawnX;
+    private int spawnY;
     private boolean isOnGround;
     private int walkStatus;
     private int status = 0;
@@ -27,6 +27,9 @@ public class Hero extends Mover {
     private ScoreboardStar scoreboardStar;
     private Scoreboard scoreboard;
     private ScoreboardKey scoreboardKey;
+    private boolean hasKey = false;
+    private int aantalKeys;
+    private int level;
    public Hero(ScoreboardStar scoreboardStar, Scoreboard scoreboard, ScoreboardKey scoreboardKey) {
         super();
         gravity = 9.8;
@@ -36,6 +39,7 @@ public class Hero extends Mover {
         this.scoreboardStar = scoreboardStar;
         this.scoreboard = scoreboard;
         this.scoreboardKey = scoreboardKey;
+        System.out.println("test");
     }
    @Override
      public void act() {
@@ -58,13 +62,13 @@ if (velocityY > gravity) {
    applyVelocity();
 for (Actor enemy : getIntersectingObjects(Enemy.class)) {
       if (enemy != null) {
-             Greenfoot.setWorld(new MyWorld());
+             setLocation(spawnX ,spawnY);
              break;
          }
       }
 for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
       if (enemy != null) {
-             Greenfoot.setWorld(new MyWorld());
+             setLocation(spawnX ,spawnY);
              break;
          }
       }      
@@ -93,10 +97,17 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
       }else if(tile.getImage().toString().contains("key")) {
              getWorld().removeObject(tile);
              scoreboardKey.addKeys();
+             hasKey = true;
+             aantalKeys = 1;
+             break;
+      }else if(tile.getImage().toString().contains("door")) {
+          if(aantalKeys >= 1){ 
+          scoreboardKey.removeKeys();
+        }
+             hasKey = false;
              break;
       }else if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
-                setLocation(x, y);
-                Greenfoot.setWorld(new MyWorld());
+                setLocation(spawnX ,spawnY);
                 break;            
     }
 }
@@ -203,7 +214,18 @@ public void animationWalk(int width, int heigth, int player) {
             getImage().mirrorHorizontally();
 
         }
-    }public int getWidth() {
+    }
+        
+    public void setSpawn(int x, int y) {
+        spawnX = x;
+        spawnY = y;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    
+    public int getWidth() {
         return getImage().getWidth();
     }
     public int getHeight() {

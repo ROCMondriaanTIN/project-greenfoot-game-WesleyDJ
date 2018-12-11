@@ -17,4 +17,9 @@ public class ScoreboardKey extends Actor
        aantalKeys++; 
        setImage(new GreenfootImage("X  " + aantalKeys, 30, Color.WHITE, new Color(0, 0, 0, 0)));
     }
+    public void removeKeys()
+    {
+       aantalKeys = 0; 
+       setImage(new GreenfootImage("X  " + aantalKeys, 30, Color.WHITE, new Color(0, 0, 0, 0)));
+    }
 }
