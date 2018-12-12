@@ -62,12 +62,14 @@ if (velocityY > gravity) {
 for (Actor enemy : getIntersectingObjects(Enemy.class)) {
       if (enemy != null) {
              setLocation(spawnX ,spawnY);
+             setPlaynumber = 1;
              break;
          }
       }
 for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
       if (enemy != null) {
              setLocation(spawnX ,spawnY);
+             setPlaynumber = 1;
              break;
          }
       }      
@@ -106,19 +108,20 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
           wereld.worldRegistry.getLevel(level + 1).load();
          }
         }
-             hasKey = false;
-             aantalKeys = 0;
-             break;
+        hasKey = false;
+        aantalKeys = 0;
+        setPlaynumber = 1;
+        break;
       }else if(tile.getImage().toString().contains("door_open")) {
          aantalKeys = 0;
          scoreboardKey.removeKeys();
          hasKey = false;
          wereld.worldRegistry.getLevel(level - 1).load();
+         setPlaynumber = 1;
          break;
-        
-             
         }else if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
                 setLocation(spawnX ,spawnY);
+                setPlaynumber = 1;
                 break;            
     }
 }

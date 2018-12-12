@@ -75,8 +75,10 @@ public class Level1 extends MyWorld
         create(1, 596, 3000);
         
         addObject(new Enemy(), 1255, 2440);
+        addObject(new Enemy(), 3557, 1808);
         addObject(new EnemyFly(), 1255, 2400);
         addObject(new EnemyFly(), 3213, 2674);
+        addObject(new EnemyFly(), 2752, 579);
 
         
         int mapWidth = te.MAP_WIDTH * te.TILE_WIDTH;
