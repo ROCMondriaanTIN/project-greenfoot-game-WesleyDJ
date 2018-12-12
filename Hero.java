@@ -177,7 +177,7 @@ public void handleInput() {
      } else {
           animationStand(getWidth(), getHeight(), setPlaynumber);
     }
-    if(Greenfoot.isKeyDown("j")){
+   /* if(Greenfoot.isKeyDown("j")){
      setPlaynumber = 1;
     }
     if(Greenfoot.isKeyDown("k")){
@@ -185,7 +185,7 @@ public void handleInput() {
     }
     if(Greenfoot.isKeyDown("l")){
      setPlaynumber = 3;
-    }
+    }*/
     }
 public void animationWalk(int width, int heigth, int player) {
      if (status == 2) {
