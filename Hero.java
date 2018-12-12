@@ -99,13 +99,25 @@ for (Actor enemy : getIntersectingObjects(EnemyFly.class)) {
              hasKey = true;
              aantalKeys = 1;
              break;
-      }else if(tile.getImage().toString().contains("door")) {
+      }else if(tile.getImage().toString().contains("door_closed")) {
           if(aantalKeys >= 1){ 
           scoreboardKey.removeKeys();
+          if(level < 4){
+          wereld.worldRegistry.getLevel(level + 1).load();
+         }
         }
              hasKey = false;
+             aantalKeys = 0;
              break;
-      }else if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
+      }else if(tile.getImage().toString().contains("door_open")) {
+         aantalKeys = 0;
+         scoreboardKey.removeKeys();
+         hasKey = false;
+         wereld.worldRegistry.getLevel(level - 1).load();
+         break;
+        
+             
+        }else if(tile.getImage().toString().contains("liquid") && !tile.getImage().toString().contains("Top")){
                 setLocation(spawnX ,spawnY);
                 break;            
     }
